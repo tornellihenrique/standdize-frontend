@@ -1,0 +1,15 @@
+<div class="p-2 rounded bg-gray-200">
+    <nav class="flex items-center" style="min-height: 30px;" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center" *ngFor="let b of breadcrumbs; let i = index">
+                <div class="flex items-center">
+                    <mat-icon *ngIf="i > 0">chevron_right</mat-icon>
+                    <a class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2" [routerLink]="b.url"
+                        routerLinkActive="router-link-active">
+                        {{ b.label }}
+                    </a>
+                </div>
+            </li>
+        </ol>
+    </nav>
+</div>

@@ -1,0 +1,37 @@
+<h1>Trânsito</h1>
+
+<h3>Clima atual <span class="text-xs">({{ currentWeather.date | intervalFromNow}})</span></h3>
+<div class="flex items-center">
+    <div class="text-xl">{{ currentWeather.condition }}</div>
+    <img [src]="currentWeather.conditionIcon">
+</div>
+
+<mat-divider class="my-5"></mat-divider>
+
+<h3>Vento</h3>
+<div class="flex justify-center">
+    <ngx-charts-line-chart *ngIf="windData" [view]="[700, 300]" [legend]="false" [showXAxisLabel]="true"
+        [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" xAxisLabel="Horário" yAxisLabel="Velocidade"
+        [timeline]="true" [results]="windData">
+    </ngx-charts-line-chart>
+</div>
+
+<mat-divider class="my-5"></mat-divider>
+
+<h3>Humidade</h3>
+<div class="flex justify-center">
+    <ngx-charts-line-chart *ngIf="humidityData" [view]="[700, 300]" [legend]="false" [showXAxisLabel]="true"
+        [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" xAxisLabel="Horário" yAxisLabel="%" [timeline]="true"
+        [results]="humidityData">
+    </ngx-charts-line-chart>
+</div>
+
+<mat-divider class="my-5"></mat-divider>
+
+<h3>Nuvens</h3>
+<div class="flex justify-center">
+    <ngx-charts-line-chart *ngIf="cloudData" [view]="[700, 300]" [legend]="false" [showXAxisLabel]="true"
+        [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" xAxisLabel="Horário" yAxisLabel="Quantidade"
+        [timeline]="true" [results]="cloudData">
+    </ngx-charts-line-chart>
+</div>

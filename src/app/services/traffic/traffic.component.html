@@ -1,0 +1,23 @@
+<h1>Trânsito</h1>
+
+<h3>Fluxo de trânsito <span class="text-xs">({{ currentTrafficFlow.date | intervalFromNow}})</span></h3>
+<div class="flex justify-center">
+    <div class="w-fit grid grid-rows-3 grid-cols-3">
+        <ng-container *ngFor="let t of currentTrafficFlow?.tiles">
+            <img style="width: 250px;" src="data:image/png;base64,{{ t }}">
+        </ng-container>
+    </div>
+</div>
+
+<mat-divider class="my-5"></mat-divider>
+
+<h3>Fluxo de segmento</h3>
+<div class="flex flex-col items-center">
+    <div *ngFor="let d of trafficFlowSegmentData">
+        <p>{{ d.address }}:</p>
+        <ngx-charts-line-chart [view]="[700, 300]" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true"
+            [xAxis]="true" [yAxis]="true" xAxisLabel="Horário" yAxisLabel="Velocidade" [timeline]="true"
+            [results]="d.chart">
+        </ngx-charts-line-chart>
+    </div>
+</div>

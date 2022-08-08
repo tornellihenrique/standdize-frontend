@@ -1,0 +1,11 @@
+<std-header title="StanDDize" (sidenavToggle)="sidebar.sidenavToggle()"></std-header>
+
+<std-sidebar #sidebar>
+    <div class="full-content">
+        <div class="loading-container absolute w-full h-full flex items-center justify-center" *ngIf="showLoading$ | async">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+</std-sidebar>

@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+    <!-- Sidenav -->
+    <mat-sidenav #sidenav [mode]="isBiggerScreen ? 'over' : 'side'" [(opened)]="opened">
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let d of data" [routerLink]="d.path" routerLinkActive="active">
+                <mat-icon>{{ d.icon }}</mat-icon>
+                <span class="ml-2">{{ d.title }}</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main content -->
+    <mat-sidenav-content>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
